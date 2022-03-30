@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,8 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('login');
 });
+
+Route::post('/login', [LoginController::class, 'authenticate']);
 
 Route::get('/register', function () {
     return view('register');

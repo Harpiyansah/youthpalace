@@ -21,7 +21,7 @@ class AdminSeeder extends Seeder
         DB::table('admin')->insert([
             'nama' => 'Harpiyansah',
             'email' => 'harpiyansah04@gmail.com',
-            'password' => Hash::make('password'),
+            'password' => 'a_lullaby',
         ]);
     }
 }

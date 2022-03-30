@@ -23,13 +23,27 @@
     <title>YouthPalace | Login</title>
 </head>
 <body class="img-bg">
+    @if(session()->has('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
+    
+    @if(session()->has('loginError'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ session('loginError') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
+
     <!-- Form Login -->
         <div id="loglog" class="col-lg-4 col-md-6">
             <!-- harus ada -->  
             <div class="row justify-content-center">
                     <div class="card border-1 mb-5 col-lg-12" style="background-color: #ffffff; border-radius: 10px">
                         <div class="card-header bg-transparent pb-5">
-            <form action="/register" method="post">
+            <form action="/login" method="post">
                 @csrf
                 <div class="row mt-2">
                     <a href="/" class="text-decoration-none" style="color: #000000; font-size: 30px;">
