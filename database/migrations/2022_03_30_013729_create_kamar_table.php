@@ -16,8 +16,10 @@ return new class extends Migration
         Schema::create('kamar', function (Blueprint $table) {
             $table->id();
             $table->string('image');
+            $table->string('tipe_kamar');
             $table->string('fasilitas_kamar');
             $table->string('harga_kamar');
+            $table->integer('jumlah_kamar');
             $table->timestamps();
             $table->softDeletes();
         });

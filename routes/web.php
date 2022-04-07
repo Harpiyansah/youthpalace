@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\FasilitasController;
+use App\Http\Controllers\KamarController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,8 +31,9 @@ Route::get('/register', function () {
     return view('register');
 });
 
-Route::get('/admin', function () {
-    return view('admin');
+Route::get('/admin', [KamarController::class, 'index']);
+Route::get('/resepsionis', function () {
+    return view('resepsionis');
 });
 
 

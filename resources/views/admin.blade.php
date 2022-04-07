@@ -15,7 +15,6 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
         crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- My CSS -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
@@ -26,26 +25,25 @@
     <!-- Navbar -->
         <nav class="navbar navbar-expand-lg fixed-top navbar-dark shadow" style="background-color: #000000">
             <div class="container">
-            <a class="navbar-brand" href="#">Youth<b>Palace</b> / Admin</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Rooms</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Facilities</a>
-                </li>
-                </ul>
-            </div>
+                <a class="navbar-brand" href="#">Youth<b>Palace</b> / Admin</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                    <li class="nav-item" id="rooms-item">
+                        <a class="nav-link" href="#kamar" style="color: #ffffff">Kamar</a>
+                    </li>
+                    <li class="nav-item" id="facilities-item">
+                        <a class="nav-link" href="#facil" style="color: #ffffff">Fasilitas</a>
+                    </li>
+                </div>
             </div>
         </nav>
     <!-- Akhir Navbar -->
 
     <!-- Logo -->
-        <section id="about" class="mb-5 mt-3" style="background-color: #c4c4c4">
+        <section id="about" class="mb-3 mt-5" style="background-color: #c4c4c4">
             <div class="container">
                 <div class="row mt-1">
                     <div class="col mt-5">
@@ -56,41 +54,158 @@
         </section>
     <!-- Akhir Logo -->
 
-    <!-- Tabel -->
-        <table class="table">
-            <thead class="table-dark">
-                <tr>
-                    <th scope="col">Room's Image</th>
-                    <th scope="col">Room's Type</th>
-                    <th scope="col">Room's Facility</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody class="table-light">
-                <tr>
-                    <td><img class="w-50" src="img/ambassador.png" /></td>
-                    <td>The Ambassador</td>
-                    <td><b>Facilities :</b><br>Bed (king-size), bathroom (shower and bath tub), caffee machine, AC, LED TV 40 inch, balcon, sofa, wardrobe (triple door), breakfast, lunch, dinner, laundry, pastry, and accomodation to airport.</td>
-                    <td>Tonight’s rate: Rp1,430,946</td>
-                    <td><a href="" style="color: #000000">Ubah</a> | <a href="" style="color: red">Hapus</a></td>
-                </tr>
-                <tr>
-                    <td><img class="w-50" src="img/premier.png" /></td>
-                    <td>The Premier</td>
-                    <td><b>Facilities :</b><br>Bed (queen-size), bathroom (shower and bath tub), coffee machine, AC, LED TV 32 inch, chair, wardrobe (regular), breakfast, lunch, and dinner.</td>
-                    <td>Tonight’s rate: Rp1,104,125</td>
-                    <td><a href="" style="color: #000000">Ubah</a> | <a href="" style="color: red">Hapus</a></td>
-                </tr>
-                <tr>
-                    <td><img class="w-50" src="img/classic.png" /></td>
-                    <td>The Classic</td>
-                    <td><b>Facilities :</b><br>beds (single-bed), bathroom (shower), AC, LED TV 22 inch, chair, wardrobe (regular), and breakfast.</td>
-                    <td>Tonight’s rate: Rp980.625</td>
-                    <td><a href="" style="color: #000000">Ubah</a> | <a href="" style="color: red">Hapus</a></td>
-                </tr>
-            </tbody>
-        </table>
-    <!-- Akhir Tabel -->
+    <!-- Tabel Kamar -->
+        <div id="kamar" class="container">
+            <div class="row mt-1">
+                <div class="col ms-3">
+                <h4>Kamar</h4>
+                </div>
+            </div>
+            <div class="d-flex">
+                <table class="table">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">Foto Kamar</th>
+                            <th scope="col">Tipe Kamar</th>
+                            <th scope="col">Fasilitas Kamar</th>
+                            <th scope="col">Harga</th>
+                            <th scope="col">Jumlah Kamar</th>
+                            <th scope="col">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-light">
+                        @foreach($kamar as $item)
+                            <tr>
+                                <td></td>
+                                <td>{{ $item['tipe_kamar'] }}</td>
+                                <td>{{ $item['fasilitas_kamar'] }}</td>
+                                <td>{{ $item['harga_kamar'] }}</td>
+                                <td>{{ $item['jumlah_kamar'] }}</td>
+                            
+                                <td>
+                                    <!-- Button trigger modal -->
+                                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modal21">
+                                            Ubah
+                                        </button>
+                                    <!-- Akhir button trigger modal-->
+
+                                    <!-- Button trigger modal -->
+                                        <button type="button" class="btn btn-danger">
+                                            Hapus
+                                        </button>
+                                    <!-- Akhir button trigger modal-->
+                                    
+                                    <!-- Modal -->
+                                        <div class="modal fade" id="modal21" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="foto_fasilitas mb-3">
+                                                        <label for="foto_fasilitas" class="form-label ms-1">Foto Fasilitas</label>
+                                                        <input type="file" class="form-control" name="foto_fasilitas" id="foto_fasilitas" placeholder="" autocomplete="off" required>
+                                                    </div>
+                                                    <div class="nama_fasilitas mb-3">
+                                                        <label for="nama_fasilitas" class="form-label ms-1">Nama Fasilitas</label>
+                                                        <input type="text" class="form-control" name="nama_fasilitas" id="nama_fasilitas" placeholder="" autocomplete="off" required>                                                    
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tutup</button>
+                                                    <button type="button" class="btn btn-dark">Simpan</button>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <!-- Akhir modal -->
+                                </td>
+                            </tr>
+                            @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    <!-- Akhir Tabel Kamar -->
+
+    <!-- Tabel Fasilitas -->
+        <div id="facil" class="container">
+            <div class="row mt-1">
+                <div class="col ms-3">
+                <h4>Fasilitas</h4>
+                </div>
+            </div>
+            <div class="d-flex">
+                <table class="table">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">Foto Fasilitas</th>
+                            <th scope="col">Nama Fasilitas</th>
+                            <th scope="col">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-light">
+                        @foreach($fasilitas as $item)
+                            <tr>
+                                <td>{{ $item->image }}</td>
+                                <td>{{ $item->nama_fasilitas }}</td>
+                                <td>
+                                    <!-- Button trigger modal -->
+                                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modal21">
+                                            Ubah
+                                        </button>
+                                    <!-- Akhir button trigger modal-->
+
+                                    <!-- Button trigger modal -->
+                                        <button type="button" class="btn btn-danger">
+                                            Hapus
+                                        </button>
+                                    <!-- Akhir button trigger modal-->
+                                    
+                                    <!-- Modal -->
+                                        <div class="modal fade" id="modal21" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="foto_fasilitas mb-3">
+                                                        <label for="foto_fasilitas" class="form-label ms-1">Foto Fasilitas</label>
+                                                        <input type="file" class="form-control" name="foto_fasilitas" id="foto_fasilitas" placeholder="" autocomplete="off" required>
+                                                    </div>
+                                                    <div class="nama_fasilitas mb-3">
+                                                        <label for="nama_fasilitas" class="form-label ms-1">Nama Fasilitas</label>
+                                                        <input type="text" class="form-control" name="nama_fasilitas" id="nama_fasilitas" placeholder="" autocomplete="off" required>                                                    
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tutup</button>
+                                                    <button type="button" class="btn btn-dark">Simpan</button>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <!-- Akhir modal -->
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    <!-- Akhir Tabel Kamar -->
+
+    <!-- Footer -->
+        <footer class="text-white text-center" style="height: 2rem; background-color: #000000">
+            <p>Dibuat oleh <a href="https://www.instagram.com/ynsh_pi/" class="text-white fw-bold">@Harpiyansah</a></p>
+        </footer>
+    <!-- Akhir Footer -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
 </body>
 </html>
