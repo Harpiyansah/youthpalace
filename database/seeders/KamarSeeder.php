@@ -19,7 +19,7 @@ class KamarSeeder extends Seeder
     public function run()
     {
         DB::table('kamar')->insert([
-            'image' => '',
+            'image' => 'https://thepapandayan.com/wp-content/uploads/2018/03/pic-room-president-suites.jpg',
             'tipe_kamar' => 'The Ambassador',
             'fasilitas_kamar' => 'Kasur (king-size), kamar mandi (shower dan bath tub), mesin kopi, AC, LED TV 40 inch, balkon, sofa, lemari (tiga pintu), sarapan, makan siang, makan malam, jasa cuci pakaian, dan transpostasi ke bandara.',
             'harga_kamar' => 'Harga per malam: Rp1,430,946',
@@ -27,7 +27,7 @@ class KamarSeeder extends Seeder
         ]);
         
         DB::table('kamar')->insert([
-            'image' => '',
+            'image' => 'https://thepapandayan.com/wp-content/uploads/2018/03/slide-room-ambassador-1.jpg',
             'tipe_kamar' => 'The Premier',
             'fasilitas_kamar' => 'Kasur (queen-size), kamar mandi (shower dan bath tub), mesin kopi, AC, LED TV 32 inch, kursi, lemari (regular), sarapan, makan siang, dan makan malam.',
             'harga_kamar' => 'Harga per malam: Rp1,104,125',
@@ -35,7 +35,7 @@ class KamarSeeder extends Seeder
         ]);
         
         DB::table('kamar')->insert([
-            'image' => '',
+            'image' => 'https://thepapandayan.com/wp-content/uploads/2018/03/slide-room-classic-4.jpg',
             'tipe_kamar' => 'The Classic',
             'fasilitas_kamar' => 'Dua kasur (single-bed), kamar mandi (shower), AC, LED TV 22 inch, kursi, lemari (regular), dan sarapan.',
             'harga_kamar' => 'Harga per malam: Rp980.625',

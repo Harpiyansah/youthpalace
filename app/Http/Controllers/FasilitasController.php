@@ -11,4 +11,10 @@ class FasilitasController extends Controller
         $fasilitas = Fasilitas::all();
         return view('admin', compact('fasilitas'));
     }
+    
+    public function dashboard()
+    {
+        $fasilitas = Fasilitas::all();
+        return view('dashboard', compact('fasilitas'));
+    }
 }

@@ -76,15 +76,14 @@
                     <tbody class="table-light">
                         @foreach($kamar as $item)
                             <tr>
-                                <td></td>
+                                <td>{{ $item['image'] }}</td>
                                 <td>{{ $item['tipe_kamar'] }}</td>
                                 <td>{{ $item['fasilitas_kamar'] }}</td>
                                 <td>{{ $item['harga_kamar'] }}</td>
                                 <td>{{ $item['jumlah_kamar'] }}</td>
-                            
                                 <td>
                                     <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modal21">
+                                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modal1">
                                             Ubah
                                         </button>
                                     <!-- Akhir button trigger modal-->
@@ -96,21 +95,33 @@
                                     <!-- Akhir button trigger modal-->
                                     
                                     <!-- Modal -->
-                                        <div class="modal fade" id="modal21" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                    <h5 class="modal-title" id="exampleModalLabel">Youth<b>Palace</b></h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <div class="foto_fasilitas mb-3">
-                                                        <label for="foto_fasilitas" class="form-label ms-1">Foto Fasilitas</label>
-                                                        <input type="file" class="form-control" name="foto_fasilitas" id="foto_fasilitas" placeholder="" autocomplete="off" required>
+                                                    <div class="foto_kamar mb-3">
+                                                        <label for="foto_kamar" class="form-label ms-1">Foto Kamar</label>
+                                                        <input type="text" class="form-control" name="foto_kamar" id="foto_kamar" placeholder="" autocomplete="off" required>
                                                     </div>
-                                                    <div class="nama_fasilitas mb-3">
-                                                        <label for="nama_fasilitas" class="form-label ms-1">Nama Fasilitas</label>
-                                                        <input type="text" class="form-control" name="nama_fasilitas" id="nama_fasilitas" placeholder="" autocomplete="off" required>                                                    
+                                                    <div class="tipe_kamar mb-3">
+                                                        <label for="tipe_kamar" class="form-label ms-1">Tipe Kamar</label>
+                                                        <input type="text" class="form-control" name="tipe_kamar" id="tipe_kamar" placeholder="" autocomplete="off" required>                                                    
+                                                    </div>
+                                                    <div class="fasilitas_kamar mb-3">
+                                                        <label for="fasilitas_kamar" class="form-label ms-1">Fasilitas Kamar</label>
+                                                        <input type="text" class="form-control" name="fasilitas_kamar" id="fasilitas_kamar" placeholder="" autocomplete="off" required>                                                    
+                                                    </div>
+                                                    <div class="harga_kamar mb-3">
+                                                        <label for="harga_kamar" class="form-label ms-1">Harga</label>
+                                                        <input type="text" class="form-control" name="harga_kamar" id="harga_kamar" placeholder="" autocomplete="off" required>                                                    
+                                                    </div>
+                                                    <div class="jumlah_kamar mb-3">
+                                                        <label for="jumlah_kamar" class="form-label ms-1">Jumlah Kamar</label>
+                                                        <input type="text" class="form-control" name="jumlah_kamar" id="jumlah_kamar" placeholder="" autocomplete="off" required>                                                    
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
@@ -123,7 +134,7 @@
                                     <!-- Akhir modal -->
                                 </td>
                             </tr>
-                            @endforeach
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -135,6 +146,7 @@
             <div class="row mt-1">
                 <div class="col ms-3">
                 <h4>Fasilitas</h4>
+                <h1 class="text-red">Harpi Gila</h1>
                 </div>
             </div>
             <div class="d-flex">
@@ -153,7 +165,7 @@
                                 <td>{{ $item->nama_fasilitas }}</td>
                                 <td>
                                     <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modal21">
+                                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modal2">
                                             Ubah
                                         </button>
                                     <!-- Akhir button trigger modal-->
@@ -165,17 +177,17 @@
                                     <!-- Akhir button trigger modal-->
                                     
                                     <!-- Modal -->
-                                        <div class="modal fade" id="modal21" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                    <h5 class="modal-title" id="exampleModalLabel">Youth<b>Palace</b></h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="foto_fasilitas mb-3">
                                                         <label for="foto_fasilitas" class="form-label ms-1">Foto Fasilitas</label>
-                                                        <input type="file" class="form-control" name="foto_fasilitas" id="foto_fasilitas" placeholder="" autocomplete="off" required>
+                                                        <input type="text" class="form-control" name="foto_fasilitas" id="foto_fasilitas" placeholder="" autocomplete="off" required>
                                                     </div>
                                                     <div class="nama_fasilitas mb-3">
                                                         <label for="nama_fasilitas" class="form-label ms-1">Nama Fasilitas</label>
@@ -197,7 +209,7 @@
                 </table>
             </div>
         </div>
-    <!-- Akhir Tabel Kamar -->
+    <!-- Akhir Tabel Fasilitas -->
 
     <!-- Footer -->
         <footer class="text-white text-center" style="height: 2rem; background-color: #000000">
@@ -205,7 +217,7 @@
         </footer>
     <!-- Akhir Footer -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/js/bootstrap.min.js') }}" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 </body>
 </html>

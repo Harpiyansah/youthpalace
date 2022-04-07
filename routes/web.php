@@ -17,9 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-});
+Route::get('/', [KamarController::class, 'home']);
 
 Route::get('/login', function () {
     return view('login');
@@ -32,9 +30,9 @@ Route::get('/register', function () {
 });
 
 Route::get('/admin', [KamarController::class, 'index']);
+
 Route::get('/resepsionis', function () {
     return view('resepsionis');
 });
-
 
 Route::get('/pdf', [BookingController::class, 'createPdf'])->name('pdf');

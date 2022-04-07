@@ -14,4 +14,11 @@ class KamarController extends Controller
         // dd($kamar);
         return view('admin', compact('kamar', 'fasilitas'));
     }
+
+    public function home()
+    {
+        $kamar = Kamar::all();
+        $fasilitas = Fasilitas::all();
+        return view('dashboard', compact('kamar', 'fasilitas'));
+    }
 }

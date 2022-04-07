@@ -87,43 +87,21 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="row row-cols-1 row-cols-md-3 g-4">
-                            <div class="col">
-                                <div class="card h-100">
-                                <img id="imgcard" src="img/ambassador.png" class="card-img-top" alt="kamar1">
-                                <div class="card-body">
-                                    <h4 class="card-title">The Ambassador</h4>
-                                    <p class="card-text"><b>Fasilitas :</b><br>Kasur (king-size), kamar mandi (shower dan bath tub), mesin kopi, AC, LED TV 40 inch, balkon, sofa, lemari (tiga pintu), sarapan, makan siang, makan malam, jasa cuci pakaian, dan transpostasi ke bandara.</p>
+                            @foreach($kamar as $item)
+                                <div class="col">
+                                    <div class="card h-100">
+                                    <img id="imgcard" src="{{ $item->image }}" class="card-img-top" alt="kamar1">
+                                    <div class="card-body">
+                                        <h4 class="card-title">{{ $item->tipe_kamar }}</h4>
+                                        <p class="card-text"><b>Fasilitas :</b><br>{{ $item->fasilitas_kamar }}</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <a href="#booking"><small class="text-muted">{{ $item->harga_kamar }}</small></a>
+                                    </div>
+                                    </div>
                                 </div>
-                                <div class="card-footer">
-                                    <a href="#booking"><small class="text-muted">Harga per malam: Rp1,430,946</small></a>
-                                </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card h-100">
-                                <img id="imgcard" src="img/premier.png" class="card-img-top" alt="kamar2">
-                                <div class="card-body">
-                                    <h4 class="card-title">The Premier</h4>
-                                    <p class="card-text"><b>Fasilitas :</b><br>Kasur (queen-size), kamar mandi (shower dan bath tub), mesin kopi, AC, LED TV 32 inch, kursi, lemari (regular), sarapan, makan siang, dan makan malam.</p>
-                                </div>
-                                <div class="card-footer">
-                                    <a href="#booking"><small class="text-muted">Harga per malam: Rp1,104,125</small></a>
-                                </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card h-100">
-                                <img id="imgcard" src="img/classic.png" class="card-img-top" alt="kamar3">
-                                <div class="card-body">
-                                    <h4 class="card-title">The Classic</h4>
-                                    <p class="card-text"><b>Fasilitas :</b><br>Dua kasur (single-bed), kamar mandi (shower), AC, LED TV 22 inch, kursi, lemari (regular), dan sarapan.</p>
-                                </div>
-                                <div class="card-footer">
-                                    <a href="#booking"><small class="text-muted">Harga per malam: Rp980.625</small></a>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
@@ -139,56 +117,16 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-4">
-                        <div class="card" style="width: 22rem;">
-                            <img id="imgcard" src="img/kolam.png" class="card-img-top" alt="kolam">
-                            <div class="card-body">
-                                <h5 class="text-center">Kolam Renang</h5>
+                    @foreach($fasilitas as $item)
+                        <div class="col-4">
+                            <div class="card my-3" style="width: 22rem;">
+                                <img id="imgcard" src="{{ $item->image  }}" class="card-img-top" alt="Foto Fasilitas">
+                                <div class="card-body">
+                                    <h5 class="text-center">{{ $item->nama_fasilitas }}</h5>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="card" style="width: 22rem;">
-                            <img id="imgcard" src="img/pastry.png" class="card-img-top" alt="pastri">
-                            <div class="card-body">
-                                <h5 class="text-center">Stand Kue</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="card" style="width: 22rem;">
-                            <img id="imgcard" src="img/mobil.png" class="card-img-top" alt="mobil">
-                            <div class="card-body">
-                                <h5 class="text-center">Transportasi ke Bandara</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-4">
-                    <div class="col-4">
-                        <div class="card" style="width: 22rem;">
-                            <img id="imgcard" src="img/ballroom.png" class="card-img-top" alt="bolrum">
-                            <div class="card-body">
-                                <h5 class="text-center">Ruang Konferensi</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="card" style="width: 22rem;">
-                            <img id="imgcard" src="img/resto.png" class="card-img-top" alt="resto">
-                            <div class="card-body">
-                                <h5 class="text-center">Restoran dan Fine Dinning</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="card" style="width: 22rem;">
-                            <img id="imgcard" src="img/spa.png" class="card-img-top" alt="spa">
-                            <div class="card-body">
-                                <h5 class="text-center">Spa</h5>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>
