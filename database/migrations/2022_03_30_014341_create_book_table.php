@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('nama_tamu');
             $table->string('tipe_kamar');
             $table->integer('jumlah_kamar');
+            $table->bigInteger('harga_kamar');
             $table->timestamps();
             $table->softDeletes();
         });

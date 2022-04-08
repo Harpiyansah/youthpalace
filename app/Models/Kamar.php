@@ -14,8 +14,8 @@ class Kamar extends Model
 
     protected $table = 'kamar';
 
-    public function kamar()
+    public function detailBooking()
     {
-        return $this->belongsToMany(Kamar::class, 'kamar');
+        return $this->hasMany(Booking::class, 'id_kamar', 'id');
     }
 }

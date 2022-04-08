@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('image');
             $table->string('tipe_kamar');
             $table->string('fasilitas_kamar');
-            $table->string('harga_kamar');
+            $table->integer('harga_kamar');
             $table->integer('jumlah_kamar');
             $table->timestamps();
             $table->softDeletes();

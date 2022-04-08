@@ -150,7 +150,7 @@
                         <div class="row justify-content-center">
                                 <div class="card border-1 mb-5 col-lg-12" style="background-color: #ffffff; border-radius: 10px">
                                     <div class="card-header bg-transparent pb-5">
-                        <form action="/register" method="post">
+                        <form action="{{ route('store.booking') }}" method="post">
                             @csrf
                             <div class="mt-3 mb-3 text-center">
                                 <a href="#" class="text-decoration-none" style="color: #000000; font-size: 24px;">
@@ -159,16 +159,17 @@
                             </div>
                             <div class="check_in mb-3">
                                 <label for="check_in" class="form-label ms-1">Check In</label>
-                                <input type="date" class="form-control @error('check_in') is-invalid @enderror" name="check_in" id="check_in" placeholder="" autocomplete="off" required>
+                                <input type="date" name="check_in" class="form-control @error('check_in') is-invalid @enderror" name="check_in" id="check_in" placeholder="" autocomplete="off" required>
+                                
                                 @error('check_in')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
                                 @enderror
                             </div>
                             <div class="check_out mb-3">
                                 <label for="check_out" class="form-label ms-1">Check Out</label>
-                                <input type="date" class="form-control @error('check_out') is-invalid @enderror" name="check_out" id="check_out" placeholder="" autocomplete="off" required>
+                                <input type="date" name="check_out" class="form-control @error('check_out') is-invalid @enderror" name="check_out" id="check_out" placeholder="" autocomplete="off" required>
                                 @error('check_out')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -177,7 +178,7 @@
                             </div>
                             <div class="nama_pemesan mb-3">
                                 <label for="nama_pemesan" class="form-label ms-1">Nama Pemesan</label>
-                                <input type="text" class="form-control @error('nama_pemesa') is-invalid @enderror" name="nama_pemesan" id="nama_pemesan" placeholder="Nama Lengkap" autocomplete="off" required>
+                                <input type="text" name="nama_pemesan" class="form-control @error('nama_pemesa') is-invalid @enderror" name="nama_pemesan" id="nama_pemesan" placeholder="Nama Lengkap" autocomplete="off" required>
                                 @error('nama_pemesan')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -186,7 +187,7 @@
                             </div>
                             <div class="email mb-3">
                                 <label for="email" class="form-label ms-1">Email</label>
-                                <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" placeholder="Email Anda" autocomplete="off" value="{{ old('email') }}" required>
+                                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" placeholder="Email Anda" autocomplete="off" value="{{ old('email') }}" required>
                                 @error('email')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -195,7 +196,7 @@
                             </div>
                             <div class="nomor_hp mb-3">
                                 <label for="nomor_hp" class="form-label ms-1">Nomor HP</label>
-                                <input type="number" class="form-control @error('nomor_hp') is-invalid @enderror" name="nomor_hp" id="nomor_hp" placeholder="Nomor HP Anda" autocomplete="off" required>
+                                <input type="number" name="nomor_hp" class="form-control @error('nomor_hp') is-invalid @enderror" name="nomor_hp" id="nomor_hp" placeholder="Nomor HP Anda" autocomplete="off" required>
                                 @error('nomor_hp')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -204,7 +205,7 @@
                             </div>
                             <div class="nama_tamu mb-3">
                                 <label for="nama_tamu" class="form-label ms-1">Nama Tamu</label>
-                                <input type="text" class="form-control @error('nama_tamu') is-invalid @enderror" name="nama_tamu" id="nama_tamu" placeholder="Nama Lengkap" autocomplete="off" required>
+                                <input type="text" name="nama_tamu" class="form-control @error('nama_tamu') is-invalid @enderror" name="nama_tamu" id="nama_tamu" placeholder="Nama Lengkap" autocomplete="off" required>
                                 @error('nama_tamu')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -213,11 +214,13 @@
                             </div>
                             <div class="tipe_kamar mb-3">
                                 <label for="tipe_kamar" class="form-label ms-1">Tipe Kamar</label>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option value="amb">The Ambassador</option>
-                                    <option value="prem">The Premier</option>
-                                    <option value="class">The Classic</option>
-                                    </select>
+                                <select class="form-select" name="tipe_kamar" aria-label="Default select example">
+                                    @foreach ($kamar as $item)
+                                        <option value="{{ $item->tipe_kamar }}">
+                                            {{ $item->tipe_kamar }}
+                                        </option>
+                                    @endforeach
+                                </select>
                                 @error('nama_tamu')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -226,7 +229,7 @@
                             </div>
                             <div class="jumlah_kamar mb-4">
                                 <label for="jumlah_kamar" class="form-label ms-1">Jumlah Kamar</label>
-                                <input type="number" class="form-control @error('jumlah_kamar') is-invalid @enderror" name="jumlah_kamar" id="jumlah_kamar" placeholder="0" autocomplete="off" required>
+                                <input type="number" name="jumlah_kamar" class="form-control @error('jumlah_kamar') is-invalid @enderror" name="jumlah_kamar" id="jumlah_kamar" placeholder="0" autocomplete="off" required>
                                 @error('jumlah_kamar')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -234,7 +237,7 @@
                                 @enderror
                             </div>
                             <div class="d-flex-justify-content-between text-center">
-                                <a href="{{ route('pdf') }}" class="btn w-45 btn btn-lg btn-primary bg-dark" type="submit" style="font-size: 15px">Konfirmasi Pemesanan</a>
+                                <button class="btn btn-success btn-sm" type="submit">Konfirmasi Pesanan</button>
                             </div>
                         </form>
                                 </div>

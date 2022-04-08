@@ -55,38 +55,38 @@
         <div id="kamar" class="container">
             <div class="main-search-input-wrap">
                 <div class="main-search-input fl-wrap mb-3">
-                    <div class="main-search-input-item"> <input type="text" value="" placeholder="Nama Tamu"><button class="main-search-button">Cari</button></div> 
+                    <div class="main-search-input-item d-flex">
+                        <form action="{{ route('resepsionis.search') }}" method="post" class="d-flex">
+                            @csrf
+                            <input type="text" name="keywords" class="form-control w-100" value="" placeholder="Nama Tamu">
+                            <button class="btn btn-dark btn-sm px-3 py-2" type="submit">Cari</button>
+                        </form>     
+                    </div> 
                 </div>
             </div>
             <div class="d-flex">
                 <table class="table">
                     <thead class="table-dark">
                         <tr>
+                            <th scope="col">Nama Pemesan</th>
                             <th scope="col">Nama Tamu</th>
+                            <th scope="col">Nomor Telepon</th>
+                            <th scope="col">Tipe Kamar</th>
                             <th scope="col">Tanggal Check In</th>
                             <th scope="col">Tanggal Check Out</th>
-                            <th scope="col">Status</th>
                         </tr>
                     </thead>
                     <tbody class="table-light">
+                        @foreach ($bookings as $item)
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{{ $item->nama_pemesan }}</td>
+                            <td>{{ $item->nama_tamu }}</td>
+                            <td>{{ $item->nomor_hp }}</td>
+                            <td>{{ $item->tipe_kamar }}</td>
+                            <td>{{ $item->check_in }}</td>
+                            <td>{{ $item->check_out }}</td>
                         </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

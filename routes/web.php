@@ -31,8 +31,17 @@ Route::get('/register', function () {
 
 Route::get('/admin', [KamarController::class, 'index']);
 
-Route::get('/resepsionis', function () {
-    return view('resepsionis');
-});
+// ---> Route Resepsionis
+Route::get('/resepsionis', [BookingController::class, 'index']);
+Route::post('/resepsionis/search', [BookingController::class, 'search'])->name('resepsionis.search');
 
 Route::get('/pdf', [BookingController::class, 'createPdf'])->name('pdf');
+
+// ---> Route Booking
+Route::post('/booking', [BookingController::class, 'store'])->name('store.booking');
+
+
+// ---> Route Page Kamar
+Route::get('/kamar/update/{id}', [KamarController::class, 'edit'])->name('kamar.edit');
+Route::patch('/kamar/update/{id}', [KamarController::class, 'update'])->name('kamar.update');
+Route::delete('/kamar/delete/{id}', [KamarController::class, 'destroy'])->name('kamar.delete');

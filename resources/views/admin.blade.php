@@ -76,22 +76,26 @@
                     <tbody class="table-light">
                         @foreach($kamar as $item)
                             <tr>
-                                <td>{{ $item['image'] }}</td>
+                                <td>
+                                    <img src="{{ $item->image }}" style="width: 200px; height: 150px; border-radius: 10px" alt="">
+                                </td>
                                 <td>{{ $item['tipe_kamar'] }}</td>
                                 <td>{{ $item['fasilitas_kamar'] }}</td>
                                 <td>{{ $item['harga_kamar'] }}</td>
                                 <td>{{ $item['jumlah_kamar'] }}</td>
                                 <td>
                                     <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modal1">
-                                            Ubah
-                                        </button>
+                                    <a href="{{ route('kamar.edit', $item->id) }}" class="btn btn-primary btn-sm">
+                                        Ubah
+                                    </a>
                                     <!-- Akhir button trigger modal-->
-
+                                <form action="{{ route('kamar.delete', $item->id) }}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                                </form>
                                     <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-danger">
-                                            Hapus
-                                        </button>
+                                
                                     <!-- Akhir button trigger modal-->
                                     
                                     <!-- Modal -->
@@ -146,7 +150,6 @@
             <div class="row mt-1">
                 <div class="col ms-3">
                 <h4>Fasilitas</h4>
-                <h1 class="text-red">Harpi Gila</h1>
                 </div>
             </div>
             <div class="d-flex">
@@ -161,7 +164,9 @@
                     <tbody class="table-light">
                         @foreach($fasilitas as $item)
                             <tr>
-                                <td>{{ $item->image }}</td>
+                                <td>
+                                    <img src="{{ $item->image }}"  style="width: 200px; height: 150px; border-radius: 10px" alt="">
+                                </td>
                                 <td>{{ $item->nama_fasilitas }}</td>
                                 <td>
                                     <!-- Button trigger modal -->
