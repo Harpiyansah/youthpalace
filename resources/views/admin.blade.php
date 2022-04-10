@@ -37,6 +37,17 @@
                     <li class="nav-item" id="facilities-item">
                         <a class="nav-link" href="#facil" style="color: #ffffff">Fasilitas</a>
                     </li>
+                    <li class="nav-item" id="facilities-item">
+                        <a class="nav-link" href="/resepsionis" style="color: #ffffff">Resepsionis</a>
+                    </li>
+                    <div class="collapse navbar-collapse ms-2" id="navbarNav">
+                        <form action="/logout" method="post">
+                            @csrf
+                                <button type="submit" class="btn btn-danger btn-sm">
+                                    Logout
+                                </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -85,57 +96,18 @@
                                 <td>{{ $item['jumlah_kamar'] }}</td>
                                 <td>
                                     <!-- Button trigger modal -->
-                                    <a href="{{ route('kamar.edit', $item->id) }}" class="btn btn-primary btn-sm">
-                                        Ubah
-                                    </a>
+                                        <a href="{{ route('kamar.edit', $item->id) }}" class="btn btn-dark btn-sm">
+                                            Ubah
+                                        </a>
                                     <!-- Akhir button trigger modal-->
-                                <form action="{{ route('kamar.delete', $item->id) }}" method="post">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
-                                </form>
+
                                     <!-- Button trigger modal -->
-                                
+                                        <form action="{{ route('kamar.delete', $item->id) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                                        </form>
                                     <!-- Akhir button trigger modal-->
-                                    
-                                    <!-- Modal -->
-                                        <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Youth<b>Palace</b></h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="foto_kamar mb-3">
-                                                        <label for="foto_kamar" class="form-label ms-1">Foto Kamar</label>
-                                                        <input type="text" class="form-control" name="foto_kamar" id="foto_kamar" placeholder="" autocomplete="off" required>
-                                                    </div>
-                                                    <div class="tipe_kamar mb-3">
-                                                        <label for="tipe_kamar" class="form-label ms-1">Tipe Kamar</label>
-                                                        <input type="text" class="form-control" name="tipe_kamar" id="tipe_kamar" placeholder="" autocomplete="off" required>                                                    
-                                                    </div>
-                                                    <div class="fasilitas_kamar mb-3">
-                                                        <label for="fasilitas_kamar" class="form-label ms-1">Fasilitas Kamar</label>
-                                                        <input type="text" class="form-control" name="fasilitas_kamar" id="fasilitas_kamar" placeholder="" autocomplete="off" required>                                                    
-                                                    </div>
-                                                    <div class="harga_kamar mb-3">
-                                                        <label for="harga_kamar" class="form-label ms-1">Harga</label>
-                                                        <input type="text" class="form-control" name="harga_kamar" id="harga_kamar" placeholder="" autocomplete="off" required>                                                    
-                                                    </div>
-                                                    <div class="jumlah_kamar mb-3">
-                                                        <label for="jumlah_kamar" class="form-label ms-1">Jumlah Kamar</label>
-                                                        <input type="text" class="form-control" name="jumlah_kamar" id="jumlah_kamar" placeholder="" autocomplete="off" required>                                                    
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tutup</button>
-                                                    <button type="button" class="btn btn-dark">Simpan</button>
-                                                </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    <!-- Akhir modal -->
                                 </td>
                             </tr>
                         @endforeach
@@ -167,46 +139,21 @@
                                 <td>
                                     <img src="{{ $item->image }}"  style="width: 200px; height: 150px; border-radius: 10px" alt="">
                                 </td>
-                                <td>{{ $item->nama_fasilitas }}</td>
+                                <td>{{ $item['nama_fasilitas'] }}</td>
                                 <td>
                                     <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modal2">
+                                        <a href="{{ route('fasilitas.edit', $item->id) }}" class="btn btn-dark btn-sm">
                                             Ubah
-                                        </button>
+                                        </a>
                                     <!-- Akhir button trigger modal-->
 
                                     <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-danger">
-                                            Hapus
-                                        </button>
+                                        <form action="{{ route('fasilitas.delete', $item->id) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                                        </form>
                                     <!-- Akhir button trigger modal-->
-                                    
-                                    <!-- Modal -->
-                                        <div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Youth<b>Palace</b></h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="foto_fasilitas mb-3">
-                                                        <label for="foto_fasilitas" class="form-label ms-1">Foto Fasilitas</label>
-                                                        <input type="text" class="form-control" name="foto_fasilitas" id="foto_fasilitas" placeholder="" autocomplete="off" required>
-                                                    </div>
-                                                    <div class="nama_fasilitas mb-3">
-                                                        <label for="nama_fasilitas" class="form-label ms-1">Nama Fasilitas</label>
-                                                        <input type="text" class="form-control" name="nama_fasilitas" id="nama_fasilitas" placeholder="" autocomplete="off" required>                                                    
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tutup</button>
-                                                    <button type="button" class="btn btn-dark">Simpan</button>
-                                                </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    <!-- Akhir modal -->
                                 </td>
                             </tr>
                         @endforeach

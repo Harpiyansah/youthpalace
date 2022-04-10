@@ -34,6 +34,14 @@
                     <li class="nav-item" id="rooms-item">
                         <a class="nav-link" href="/resepsionis" style="color: #ffffff">Resepsionis</a>
                     </li>
+                    <div class="collapse navbar-collapse ms-2" id="navbarNav">
+                        <form action="/logout" method="post">
+                            @csrf
+                                <button type="submit" class="btn btn-danger btn-sm">
+                                    Logout
+                                </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -92,12 +100,6 @@
             </div>
         </div>
     <!-- Akhir Tabel -->
-
-    <!-- Footer -->
-        <footer id="footers" class="text-white text-center" style="background-color: #000000; bottom: 0;">
-            <p>Dibuat oleh <a href="https://www.instagram.com/ynsh_pi/" class="text-white fw-bold">@Harpiyansah</a></p>
-        </footer>
-    <!-- Akhir Footer -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 

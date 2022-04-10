@@ -23,5 +23,11 @@ class AdminSeeder extends Seeder
             'email' => 'harpiyansah04@gmail.com',
             'password' => 'a_lullaby',
         ]);
+        
+        DB::table('admin')->insert([
+            'nama' => 'yansah',
+            'email' => 'yansah@gmail.com',
+            'password' => 'yanto',
+        ]);
     }
 }

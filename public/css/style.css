@@ -85,7 +85,7 @@ body {
 }
 
 .img-bg {
-    background-image: url("../img/kolam.png");
+    background-image: url("../img/lobby.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -100,4 +100,9 @@ table {
 
 #kamar {
     margin-bottom: 3rem;
+}
+
+#pesan {
+    margin-top: 3.8rem;
+    margin-bottom: 4.45rem;
 }

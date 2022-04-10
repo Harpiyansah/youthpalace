@@ -29,19 +29,26 @@ Route::get('/register', function () {
     return view('register');
 });
 
+Route::post('/logout', [LoginController::class, 'logout']);
+
 Route::get('/admin', [KamarController::class, 'index']);
 
 // ---> Route Resepsionis
 Route::get('/resepsionis', [BookingController::class, 'index']);
 Route::post('/resepsionis/search', [BookingController::class, 'search'])->name('resepsionis.search');
 
-Route::get('/pdf', [BookingController::class, 'createPdf'])->name('pdf');
 
 // ---> Route Booking
 Route::post('/booking', [BookingController::class, 'store'])->name('store.booking');
+Route::get('/booking/detail', [BookingController::class, 'detail'])->name('booking.detail');
 
 
 // ---> Route Page Kamar
 Route::get('/kamar/update/{id}', [KamarController::class, 'edit'])->name('kamar.edit');
 Route::patch('/kamar/update/{id}', [KamarController::class, 'update'])->name('kamar.update');
 Route::delete('/kamar/delete/{id}', [KamarController::class, 'destroy'])->name('kamar.delete');
+
+// ---> Route Page Fasilitas
+Route::get('/fasilitas/update/{id}', [FasilitasController::class, 'edits'])->name('fasilitas.edit');
+Route::patch('/fasilitas/update/{id}', [FasilitasController::class, 'updates'])->name('fasilitas.update');
+Route::delete('/fasilitas/delete/{id}', [FasilitasController::class, 'destroys'])->name('fasilitas.delete');

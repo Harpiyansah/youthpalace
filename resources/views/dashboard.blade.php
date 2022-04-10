@@ -20,25 +20,27 @@
     <!-- Navbar -->
         <nav class="navbar navbar-expand-lg fixed-top navbar-dark shadow" style="background-color: #000000">
             <div class="container">
-            <a class="navbar-brand" href="/">Youth<b>Palace</b></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                <li class="nav-item" id="rooms-item">
-                    <a class="nav-link" href="#kamar" style="color: #ffffff">Kamar</a>
-                </li>
-                <li class="nav-item" id="facilities-item">
-                    <a class="nav-link" href="#facil" style="color: #ffffff">Fasilitas</a>
-                </li>
-                <li class="nav-item" id="booking-item">
-                    <a class="nav-link" href="#booking" style="color: #ffffff">Pesan Kamar</a>
-                </li>
-                <div class="collapse navbar-collapse ms-2" id="navbarNav">
-                    <a href="/login"><button id="btnlog" type="button" class="btn btn-secondary btn-sm">Masuk</button></a>
-                </ul>
-            </div>
+                <a class="navbar-brand" href="/">Youth<b>Palace</b></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item" id="rooms-item">
+                            <a class="nav-link" href="#kamar" style="color: #ffffff">Kamar</a>
+                        </li>
+                        <li class="nav-item" id="facilities-item">
+                            <a class="nav-link" href="#facil" style="color: #ffffff">Fasilitas</a>
+                        </li>
+                        <li class="nav-item" id="booking-item">
+                            <a class="nav-link" href="#booking" style="color: #ffffff">Pesan Kamar</a>
+                        </li>
+                        <div class="collapse navbar-collapse ms-2" id="navbarNav">
+                            <a href="/login">
+                                <button id="btnlog" type="button" class="btn btn-secondary btn-sm">Masuk</button></a>
+                        </div>
+                    </ul>
+                </div>
             </div>
         </nav>
     <!-- Akhir Navbar -->
@@ -96,7 +98,7 @@
                                         <p class="card-text"><b>Fasilitas :</b><br>{{ $item->fasilitas_kamar }}</p>
                                     </div>
                                     <div class="card-footer">
-                                        <a href="#booking"><small class="text-muted">{{ $item->harga_kamar }}</small></a>
+                                        <a href="#booking"><small class="text-muted">Harga per malam Rp{{ $item->harga_kamar }}</small></a>
                                     </div>
                                     </div>
                                 </div>
@@ -237,7 +239,7 @@
                                 @enderror
                             </div>
                             <div class="d-flex-justify-content-between text-center">
-                                <button class="btn btn-success btn-sm" type="submit">Konfirmasi Pesanan</button>
+                                <button class="btn btn-dark btn-sm" type="submit">Konfirmasi Pesanan</button>
                             </div>
                         </form>
                                 </div>

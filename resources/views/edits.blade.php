@@ -28,7 +28,7 @@
             <div class="row justify-content-center">
                     <div class="card border-1 mb-5 col-lg-12" style="background-color: #ffffff; border-radius: 10px">
                         <div class="card-header bg-transparent pb-5">
-            <form action="{{ route('kamar.update', $item->id) }}" method="POST">
+            <form action="{{ route('fasilitas.update', $item->id) }}" method="POST">
                 @csrf
                 @method('patch')
                 <div class="row mt-2 mb-3">
@@ -37,24 +37,9 @@
                     </a>
                 </div>
                 <input type="hidden" name="_method" value="PATCH">
-                <div class="tipe_kamar mb-2">
-                    <label for="tipe_kamar" class="form-label ms-1">Tipe Kamar</label>
-                    <input type="text" class="form-control" name="email" id="email" value="{{ $item['tipe_kamar'] }}" autocomplete="off" >
-                </div>
-                <div class="fasilitas_kamar mb-2">
-                    <label for="fasilitas_kamar" class="form-label ms-1">Fasilitas Kamar</label>
-                    <br>
-                    <textarea name="fasilitas_kamar" id="" class="form-control" cols="30" rows="10">
-                        {{ $item->fasilitas_kamar }}
-                    </textarea>
-                </div>
-                <div class="harga_kamar mb-2">
-                    <label for="harga_kamar" class="form-label ms-1">Harga</label>
-                    <input type="text" class="form-control" name="harga_kamar" id="harga_kamar" placeholder="" value="{{ $item->harga_kamar }}" autocomplete="off" >
-                </div>
-                <div class="jumlah_kamar mb-2">
-                    <label for="jumlah_kamar" class="form-label ms-1">Jumlah Kamar</label>
-                    <input type="text" class="form-control" name="jumlah_kamar" id="jumlah_kamar" placeholder="" value="{{ $item->jumlah_kamar }}" autocomplete="off" >
+                <div class="nama_fasilitas mb-2">
+                    <label for="nama_fasilitas" class="form-label ms-1">Nama Fasilitas</label>
+                    <input type="text" class="form-control" name="nama_fasilitas" id="nama_fasilitas" value="{{ $item['nama_fasilitas'] }}" autocomplete="off" >
                 </div>
                 <div class="mt-4">
                     <button class="w-45 btn btn-lg btn-primary bg-dark" type="submit" style="font-size: 15px" href="">Simpan</button>

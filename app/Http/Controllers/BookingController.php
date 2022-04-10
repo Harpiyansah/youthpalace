@@ -42,7 +42,14 @@ class BookingController extends Controller
         }
 
         $storeData = Booking::create($data);
-        dd($storeData);
+        // dd($storeData);
+        return redirect()->route('booking.detail');
+    }
+
+    public function detail(){
+        $item = Booking::latest()->first();
+        // dd($item);
+        return view('register', compact('item'));
     }
 
     public function search(Request $request)
