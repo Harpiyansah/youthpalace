@@ -69,7 +69,12 @@
         <div id="kamar" class="container">
             <div class="row mt-1">
                 <div class="col ms-3">
-                <h4>Kamar</h4>
+                    <h4>Kamar</h4>
+                </div>
+                <div class="col-2 mb-2">
+                    <a href="{{ route('kamar.create') }}" class="btn btn-dark btn-sm">
+                        Tambah Kamar
+                    </a>
                 </div>
             </div>
             <div class="d-flex">
@@ -121,7 +126,12 @@
         <div id="facil" class="container">
             <div class="row mt-1">
                 <div class="col ms-3">
-                <h4>Fasilitas</h4>
+                    <h4>Fasilitas</h4>
+                </div>
+                <div class="col-2 mb-2">
+                    <a href="{{ route('fasilitas.creates') }}" class="btn btn-dark btn-sm">
+                        Tambah Fasilitas
+                    </a>
                 </div>
             </div>
             <div class="d-flex">

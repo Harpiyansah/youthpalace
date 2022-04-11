@@ -44,4 +44,16 @@ class KamarController extends Controller
 
         return redirect('/admin');
     }
+
+    public function create()
+    {
+        return view('create');
+    }
+
+    public function store(Request $request)
+    {
+        // dd($request->except(['token]));
+        Kamar::create($request->except(['_token']));
+        return redirect('/admin');
+    }
 }

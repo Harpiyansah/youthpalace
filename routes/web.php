@@ -44,11 +44,15 @@ Route::get('/booking/detail', [BookingController::class, 'detail'])->name('booki
 
 
 // ---> Route Page Kamar
+Route::get('/create', [KamarController::class, 'create'])->name('kamar.create');
+Route::post('/create/kamar', [KamarController::class, 'store']);
 Route::get('/kamar/update/{id}', [KamarController::class, 'edit'])->name('kamar.edit');
 Route::patch('/kamar/update/{id}', [KamarController::class, 'update'])->name('kamar.update');
 Route::delete('/kamar/delete/{id}', [KamarController::class, 'destroy'])->name('kamar.delete');
 
 // ---> Route Page Fasilitas
+Route::get('/creates', [FasilitasController::class, 'create'])->name('fasilitas.creates');
+Route::post('/creates/fasilitas', [FasilitasController::class, 'store']);
 Route::get('/fasilitas/update/{id}', [FasilitasController::class, 'edits'])->name('fasilitas.edit');
 Route::patch('/fasilitas/update/{id}', [FasilitasController::class, 'updates'])->name('fasilitas.update');
 Route::delete('/fasilitas/delete/{id}', [FasilitasController::class, 'destroys'])->name('fasilitas.delete');

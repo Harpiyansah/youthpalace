@@ -41,4 +41,16 @@ class FasilitasController extends Controller
 
         return redirect('/admin');
     }
+
+    public function create()
+    {
+        return view('creates');
+    }
+
+    public function store(Request $request)
+    {
+        // dd($request->all());
+        Fasilitas::create($request->except('_token'));
+        return redirect('/admin');
+    }
 }
